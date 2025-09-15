@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="ca">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LocaleFlow — Planner IA “Focus & Explore” per a expatriats</title>
+  <meta name="description" content="Agenda intel·ligent que combina les teves tasques amb activitats locals segons energia, interessos i ubicació. Instal·la’t ràpid, integra’t millor." />
+  <meta name="theme-color" content="#0ea5e9" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    /* Tailwind personalització mínima (fonts) */
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['Inter', 'ui-sans-serif', 'system-ui'] },
+          colors: {
+            brand: {
+              50: '#ecfeff',
+              100: '#cffafe',
+              200: '#a5f3fc',
+              300: '#67e8f9',
+              400: '#22d3ee',
+              500: '#06b6d4',
+              600: '#0891b2',
+              700: '#0e7490',
+              800: '#155e75',
+              900: '#164e63'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Fons amb overlay per a heroi */
+    .hero-bg::before{
+      content:"";
+      position:absolute; inset:0;
+      background: linear-gradient(180deg, rgba(10,15,20,.6), rgba(10,15,20,.55), rgba(10,15,20,.6));
+      pointer-events:none;
+    }
+    .glass { backdrop-filter: blur(8px); background: rgba(255,255,255,.08); }
+  </style>
+</head>
+
+<body class="bg-slate-950 text-white antialiased">
+  <!-- Barra superior -->
+  <header class="sticky top-0 z-40 bg-slate-950/70 backdrop-blur border-b border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <a href="#top" class="flex items-center gap-2 group">
+        <div class="h-9 w-9 rounded-2xl bg-gradient-to-br from-brand-400 to-sky-500 grid place-content-center font-black text-slate-900 group-hover:scale-105 transition">
+          LF
+        </div>
+        <div class="leading-tight">
+          <div class="font-extrabold tracking-tight">LocaleFlow</div>
+          <div class="text-xs text-white/60">Planner IA · Focus & Explore</div>
+        </div>
+      </a>
+      <nav class="hidden md:flex items-center gap-6">
+        <a href="#features" class="text-white/80 hover:text-white">Funcions</a>
+        <a href="#how" class="text-white/80 hover:text-white">Com funciona</a>
+        <a href="#personas" class="text-white/80 hover:text-white">Per a qui</a>
+        <a href="#gallery" class="text-white/80 hover:text-white">Imatges</a>
+        <a href="#contact" class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-400 text-slate-900 font-semibold px-4 py-2 rounded-xl transition">
+          Demana l’MVP
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"/></svg>
+        </a>
+      </nav>
+      <a href="#contact" class="md:hidden inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-400 text-slate-900 font-semibold px-3 py-2 rounded-lg transition">Contacte</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section id="top" class="relative isolate hero-bg overflow-hidden">
+    <!-- IMPORTANT: Substitueix les URL següents per les teves imatges directes (no pàgines HTML).
+      Pots usar:
+      - Una URL directa a imatge (JPG/PNG/WebP).
+      - O bé un fitxer local (p.ex. ./img/hero.jpg) si el tens a la mateixa carpeta.
+      Hem col·locat les URL facilitades com a “placeholder” (Freepik mostra pàgines, no imatges directes).
+    -->
+    <div class="absolute inset-0 -z-10">
+      <img
+        src="2150769952.jpg"
+        alt="Oficina moderna i planificació de viatge"
+        class="h-full w-full object-cover opacity-60"
+      />
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 pt-20 pb-28">
+      <div class="md:max-w-3xl">
+        <span class="inline-flex items-center gap-2 text-xs uppercase tracking-wider text-brand-200/90 bg-slate-900/40 px-3 py-1 rounded-full ring-1 ring-white/10 mb-4">
+          Nou per a expatriats
+        </span>
+        <h1 class="font-extrabold text-4xl sm:text-5xl leading-tight">
+          Instal·la’t ràpid. <span class="text-brand-300">Integra’t millor.</span>
+        </h1>
+        <p class="mt-4 text-white/80 text-lg">
+          Un planner amb IA que combina el teu focus laboral amb <span class="font-semibold text-white">activitats locals</span> segons energia, interessos i ubicació. Compleix deadlines mentre fas xarxa i descobreixes la ciutat.
+        </p>
+        <div class="mt-8 flex flex-col sm:flex-row gap-3">
+          <a href="#contact" class="inline-flex items-center justify-center gap-2 bg-brand-500 hover:bg-brand-400 text-slate-900 font-semibold px-5 py-3 rounded-xl transition">
+            Prova l’MVP gratuït
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="currentColor" viewBox="0 0 20 20"><path d="M12.293 2.293a1 1 0 011.414 0l4 4a.997.997 0 01.083 1.32l-.083.094-4 4a1 1 0 01-1.497-1.32l.083-.094L14.585 8H7a1 1 0 01-.993-.883L6 7a1 1 0 011-1h7.585l-2.292-2.293a1 1 0 010-1.414z"/></svg>
+          </a>
+          <a href="#how" class="inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl ring-1 ring-white/20 text-white/90 hover:bg-white/5 transition">
+            Mira com funciona
+          </a>
+        </div>
+
+        <div class="mt-8 grid grid-cols-2 sm:flex sm:flex-row gap-3 text-xs text-white/70">
+          <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-emerald-400"></span> Recomanacions locals en temps real</div>
+          <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-sky-400"></span> Bloqueig de focus automàtic</div>
+          <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-fuchsia-400"></span> Microtips culturals & idioma</div>
+          <div class="flex items-center gap-2"><span class="h-2 w-2 rounded-full bg-amber-400"></span> Socializador amb altres expats (opt-in)</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section id="features" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Totes les teves <span class="text-brand-300">rutines</span> en un sol lloc</h2>
+        <p class="mt-3 text-white/70 max-w-3xl mx-auto">Planifica, descobreix i connecta. Sense perdre temps buscant: l’IA t’ho proposa al moment adequat.</p>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6">
+        <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+          <div class="h-10 w-10 rounded-xl bg-brand-500/20 text-brand-200 grid place-content-center mb-4">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M5 3a2 2 0 00-2 2v2h18V5a2 2 0 00-2-2H5zM21 9H3v8a2 2 0 002 2h14a2 2 0 002-2V9z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Agenda intel·ligent</h3>
+          <p class="text-white/70 mt-2">Bloqueig de focus & prioritats. Sincronitza Google/Outlook i deixa que proposem el millor moment.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+          <div class="h-10 w-10 rounded-xl bg-brand-500/20 text-brand-200 grid place-content-center mb-4">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3 7h7l-5.5 4 2.5 7L12 16l-7 4 2.5-7L2 9h7l3-7z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Explora la ciutat</h3>
+          <p class="text-white/70 mt-2">Suggeriments propers (Meetup, Eventbrite, clubs, intercanvis d’idioma) segons energia, pressupost i interessos.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+          <div class="h-10 w-10 rounded-xl bg-brand-500/20 text-brand-200 grid place-content-center mb-4">
+            <svg class="h-6 w-6" viewBox="0 0 24 24" fill="currentColor"><path d="M12 12a5 5 0 100-10 5 5 0 000 10zm7 9a7 7 0 10-14 0h14z"/></svg>
+          </div>
+          <h3 class="font-semibold text-lg">Conexions reals</h3>
+          <p class="text-white/70 mt-2">Comparteix plans amb altres expatriats (opt-in) i crea comunitat des del primer mes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how" class="py-20 bg-gradient-to-b from-slate-900 to-slate-950">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Com funciona</h2>
+        <p class="mt-3 text-white/70 max-w-3xl mx-auto">Un MVP simple per validar: connecta calendaris, rep propostes i dona feedback. L’algoritme aprèn en dies.</p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl glass ring-1 ring-white/10">
+          <div class="text-brand-300 font-bold text-2xl">01</div>
+          <h3 class="mt-2 font-semibold">Onboarding 5′</h3>
+          <p class="text-white/70 mt-2">Connecta calendari i tria interessos, franges i idioma.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass ring-1 ring-white/10">
+          <div class="text-brand-300 font-bold text-2xl">02</div>
+          <h3 class="mt-2 font-semibold">Focus & buits</h3>
+          <p class="text-white/70 mt-2">Bloquegem el focus i detectem finestres lliures d’≥45′.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass ring-1 ring-white/10">
+          <div class="text-brand-300 font-bold text-2xl">03</div>
+          <h3 class="mt-2 font-semibold">Propostes locals</h3>
+          <p class="text-white/70 mt-2">Fins a 3 opcions segons energia, pressupost i distància.</p>
+        </div>
+        <div class="p-6 rounded-2xl glass ring-1 ring-white/10">
+          <div class="text-brand-300 font-bold text-2xl">04</div>
+          <h3 class="mt-2 font-semibold">1-clic & feedback</h3>
+          <p class="text-white/70 mt-2">Accepta i s’afegeix al calendari. Després: 👍 😐 👎 per aprendre gustos.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Personas / Target -->
+  <section id="personas" class="py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12">
+        <h2 class="text-3xl sm:text-4xl font-extrabold">Dissenyat per a tu</h2>
+        <p class="mt-3 text-white/70 max-w-3xl mx-auto">Professionals solters, famílies, parelles acompanyants i nòmades digitals. Un sol flux, diverses necessitats.</p>
+      </div>
+
+      <div class="grid md:grid-cols-4 gap-6">
+        <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+          <h3 class="font-semibold">Professional solter</h3>
+          <p class="text-white/70 mt-2 text-sm">Mantén el rendiment i construeix xarxa local en setmanes.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+          <h3 class="font-semibold">Família amb fills</h3>
+          <p class="text-white/70 mt-2 text-sm">Activitats bilingües i logística simplificada per a tothom.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+          <h3 class="font-semibold">Parella acompanyant</h3>
+          <p class="text-white/70 mt-2 text-sm">Rutina, idioma i comunitat per recuperar propòsit.</p>
+        </div>
+        <div class="p-6 rounded-2xl bg-white/5 ring-1 ring-white/10">
+          <h3 class="font-semibold">Nòmada digital</h3>
+          <p class="text-white/70 mt-2 text-sm">Equilibri entre focus i descoberta a cada ciutat hub.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Galeria d’imatges (les URL proporcionades) -->
+  <section id="gallery" class="py-20 bg-slate-900/40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="flex items-end justify-between mb-8">
+        <div>
+          <h2 class="text-2xl sm:text-3xl font-extrabold">Imatges de context</h2>
+          <p class="text-white/70 text-sm mt-2">Substitueix les URL per enllaços directes a imatge o per fitxers locals.</p>
+        </div>
+      </div>
+      <div class="grid md:grid-cols-4 gap-4">
+        <a class="group relative block rounded-2xl overflow-hidden ring-1 ring-white/10" href="#" target="_blank" rel="noopener">
+          <img class="h-52 w-full object-cover group-hover:scale-105 transition" src="2150769952.jpg" alt="Oficina viatges" />
+        </a>
+        <a class="group relative block rounded-2xl overflow-hidden ring-1 ring-white/10" href="#" target="_blank" rel="noopener">
+          <img class="h-52 w-full object-cover group-hover:scale-105 transition" src="hello-how-can-i-help-you-hispanic-young-woman-working-travel-agency-talking-with-client-about-booking-flight-business-trip.jpg" alt="Atenció a client" />
+        </a>
+        <a class="group relative block rounded-2xl overflow-hidden ring-1 ring-white/10" href="#" target="_blank" rel="noopener">
+          <img class="h-52 w-full object-cover group-hover:scale-105 transition" src="side-view-students-learning-exam.jpg" alt="Aprenentatge d’idioma" />
+        </a>
+        <a class="group relative block rounded-2xl overflow-hidden ring-1 ring-white/10" href="#" target="_blank" rel="noopener">
+          <img class="h-52 w-full object-cover group-hover:scale-105 transition" src="medium-shot-people-travel-agency.jpg" alt="Planificació viatge" />
+        </a>
+      </div>
+
+      <!-- Exemple d’imatge local: substitueix ./img/hero.jpg pel teu fitxer -->
+      <div class="mt-6 text-xs text-white/60">
+        Si tens imatges locals, col·loca-les a la mateixa carpeta i apunta-les així:
+        <code class="bg-white/10 px-2 py-1 rounded">src="./hero-local.jpg"</code>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6">
+      <div class="p-6 md:p-10 rounded-3xl bg-gradient-to-br from-brand-700/60 to-brand-500/40 ring-1 ring-white/10">
+        <div class="md:flex items-center justify-between gap-8">
+          <div class="md:max-w-2xl">
+            <h3 class="text-2xl font-extrabold">Vols participar al pilot?</h3>
+            <p class="text-white/80 mt-2">Deixa’ns les teves dades i connectarem el teu calendari a l’MVP. Places limitades.</p>
+          </div>
+          <a href="#contact" class="mt-4 md:mt-0 inline-flex items-center justify-center gap-2 bg-white text-slate-900 font-semibold px-5 py-3 rounded-xl hover:bg-white/90 transition">
+            Entra a la llista d’espera
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulari de contacte -->
+  <section id="contact" class="py-20 bg-slate-900/40">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-10">
+        <h2 class="text-3xl font-extrabold">Contacte & Accés a l’MVP</h2>
+        <p class="mt-2 text-white/70">Escriu-nos a <a class="underline hover:text-white" href="mailto:elimbostena@gmail.com">elimbostena@gmail.com</a> o omple el formulari.</p>
+      </div>
+
+      <form id="leadForm" class="space-y-6 p-6 rounded-3xl bg-white/5 ring-1 ring-white/10">
+        <!-- IMPORTANT: quan tinguis el teu endpoint, substitueix la constant ENDPOINT_URL a sota del document. -->
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-1" for="name">Nom i cognoms</label>
+            <input id="name" name="name" type="text" required placeholder="Nom i cognoms"
+                   class="w-full px-4 py-3 rounded-xl bg-slate-900/50 ring-1 ring-white/10 placeholder-white/40 focus:outline-none focus:ring-brand-400"/>
+          </div>
+          <div>
+            <label class="block text-sm mb-1" for="email">Email</label>
+            <input id="email" name="email" type="email" required placeholder="tu@correu.com"
+                   class="w-full px-4 py-3 rounded-xl bg-slate-900/50 ring-1 ring-white/10 placeholder-white/40 focus:outline-none focus:ring-brand-400"/>
+          </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-4">
+          <div>
+            <label class="block text-sm mb-1" for="city">Ciutat de destí</label>
+            <input id="city" name="city" type="text" placeholder="Munic, Estocolm, Amsterdam..."
+                   class="w-full px-4 py-3 rounded-xl bg-slate-900/50 ring-1 ring-white/10 placeholder-white/40 focus:outline-none focus:ring-brand-400"/>
+          </div>
+          <div>
+            <label class="block text-sm mb-1" for="role">Perfil</label>
+            <select id="role" name="role"
+                    class="w-full px-4 py-3 rounded-xl bg-slate-900/50 ring-1 ring-white/10 focus:outline-none focus:ring-brand-400">
+              <option>Professional solter/a</option>
+              <option>Família expatriada</option>
+              <option>Parella acompanyant</option>
+              <option>Nòmada digital</option>
+              <option>Altres</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label class="block text-sm mb-1" for="message">Què necessites?</label>
+          <textarea id="message" name="message" rows="4" placeholder="Explica’ns el teu cas, disponibilitat i interessos"
+                    class="w-full px-4 py-3 rounded-xl bg-slate-900/50 ring-1 ring-white/10 placeholder-white/40 focus:outline-none focus:ring-brand-400"></textarea>
+        </div>
+
+        <!-- Honeypot anti-spam -->
+        <div class="hidden">
+          <label for="company">Company (deixa buit)</label>
+          <input id="company" name="company" type="text" />
+        </div>
+
+        <div class="flex items-start gap-3">
+          <input id="consent" name="consent" type="checkbox" required
+                 class="mt-1 h-5 w-5 rounded border-white/20 bg-slate-900/50 text-brand-400 focus:ring-brand-400"/>
+          <label for="consent" class="text-sm text-white/80">
+            Accepto rebre informació sobre l’MVP i autoritzo el tractament de dades amb la finalitat indicada.
+          </label>
+        </div>
+
+        <div class="flex items-center gap-4">
+          <button type="submit" id="submitBtn"
+                  class="inline-flex items-center gap-2 bg-brand-500 hover:bg-brand-400 text-slate-900 font-semibold px-5 py-3 rounded-xl transition">
+            Enviar sol·licitud
+            <svg id="spinner" class="hidden animate-spin h-4 w-4" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8H4z"></path>
+            </svg>
+          </button>
+          <p id="status" class="text-sm text-white/70"></p>
+        </div>
+      </form>
+
+      <p class="mt-6 text-xs text-white/50">
+        En cas de dubtes, escriu-nos a
+        <a class="underline" href="mailto:elimbostena@gmail.com">elimbostena@gmail.com</a>.
+      </p>
+    </div>
+  </section>
+
+  <!-- Peu de pàgina -->
+  <footer class="py-12 border-t border-white/10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 flex flex-col md:flex-row items-center justify-between gap-4">
+      <p class="text-white/60 text-sm">© <span id="year"></span> LocaleFlow — Planner IA Focus & Explore</p>
+      <div class="text-white/60 text-xs">
+        Imatges: enllaços proporcionats (Freepik). Substitueix per fitxers locals o URL directes d’imatge per millorar el rendiment.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Configuració JS -->
+  <script>
+    // =============================
+    // ★★ IMPORTANT ★★
+    // Substitueix aquesta URL pel teu endpoint real quan el tinguis.
+    // Exemples típics:
+    //  - Un webhook (Zapier, Make/Integromat)
+    //  - Un endpoint propi tipus https://tu-dominio.com/api/leads
+    // =============================
+    const ENDPOINT_URL = "https://example.com/tu-endpoint"; // ← CANVIA’M
+
+    // Enviar el formulari amb Fetch (JSON)
+    const form = document.getElementById('leadForm');
+    const spinner = document.getElementById('spinner');
+    const statusEl = document.getElementById('status');
+    const submitBtn = document.getElementById('submitBtn');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      statusEl.textContent = "";
+      spinner.classList.remove('hidden');
+      submitBtn.setAttribute('disabled', 'disabled');
+
+      // Anti-spam honeypot
+      if (form.company && form.company.value.trim() !== "") {
+        spinner.classList.add('hidden');
+        submitBtn.removeAttribute('disabled');
+        statusEl.textContent = "Error: enviament invàlid.";
+        statusEl.className = "text-sm text-rose-300";
+        return;
+      }
+
+      const payload = {
+        name: form.name.value.trim(),
+        email: form.email.value.trim(),
+        city: form.city.value.trim(),
+        role: form.role.value,
+        message: form.message.value.trim(),
+        consent: form.consent.checked,
+        source: "LocaleFlow Landing v1"
+      };
+
+      try {
+        const res = await fetch(ENDPOINT_URL, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload)
+        });
+
+        if (!res.ok) throw new Error("Resposta no vàlida del servidor");
+
+        spinner.classList.add('hidden');
+        submitBtn.removeAttribute('disabled');
+        statusEl.textContent = "Gràcies! Hem rebut la teva sol·licitud.";
+        statusEl.className = "text-sm text-emerald-300";
+        form.reset();
+      } catch (err) {
+        spinner.classList.add('hidden');
+        submitBtn.removeAttribute('disabled');
+        statusEl.textContent = "No s’ha pogut enviar. Revisa la connexió o prova més tard.";
+        statusEl.className = "text-sm text-amber-300";
+        console.error(err);
+      }
+    });
+
+    // Any corrent
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
